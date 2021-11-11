@@ -24,14 +24,14 @@ function TodoForm(props) {
     <form className="to-do-form" onSubmit={handleSubmit}>
       <input
         type="text"
-        className="to-do-input"
+        className="to-do-input edit"
         placeholder="search"
         value={input}
         name="text"
         onChange={handleChange}
         ref={inputRef}
       />
-      <button className="to-do-button">New</button>
+      <button className="to-do-button edit">New</button>
     </form>
   );
 }
