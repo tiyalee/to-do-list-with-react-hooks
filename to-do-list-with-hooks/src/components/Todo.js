@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TodoForm from "./TodoForm";
-import TodoList from "./TodoList";
 import { RiCloseCircleLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 
-function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
+function Todo({
+  todos,
+  completeTodo,
+  removeTodo,
+  updateTodo,
+  searchTodo,
+  showTodos,
+}) {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
@@ -18,10 +24,12 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
     });
   };
   if (edit.id) {
-    return <TodoForm edit={edit} onSubmit={submitUpdate} />;
+    return (
+      <TodoForm edit={edit} onSubmit={submitUpdate} searchTodo={searchTodo} />
+    );
   }
 
-  return todos.map((todo, index) => (
+  return showTodos.map((todo, index) => (
     <div
       className={todo.isComplete ? "to-do-row complete" : "to-do-row"}
       key={index}

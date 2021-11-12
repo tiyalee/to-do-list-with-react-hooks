@@ -8,6 +8,10 @@ function TodoForm(props) {
     inputRef.current.focus();
   });
 
+  useEffect(() => {
+    props.searchTodo(input);
+  }, [input]);
+
   const handleChange = (event) => {
     setInput(event.target.value);
   };

@@ -8,9 +8,9 @@
 
 body {
   background: linear-gradient(
-    90deg,
-    rgba(48, 16, 255, 1) 0%,
-    rgba(100, 115, 255, 1) 100%
+    150deg,
+    rgb(229, 227, 233) 0%,
+    rgb(39, 41, 34) 40%
   );
 }
 .to-do-app {
@@ -19,7 +19,7 @@ body {
   justify-content: start;
   width: 520px;
   min-height: 600px;
-  background: #161a2b;
+  background: rgb(16, 17, 14) ;
   text-align: center;
   margin: 128px auto;
   border-radius: 10px;

@@ -3,18 +3,28 @@ import TodoForm from "./TodoForm";
 import Todo from "./Todo";
 function TodoList() {
   const [todos, setTodos] = useState([]);
+  const [showtodos, setShowTodos] = useState(todos);
   const addTodo = (todo) => {
     if (
       !todo.text ||
       /^\s*$/.test(todo.text) ||
-      todo.length < 1 ||
-      todo.length > 25
+      todo.text.length < 1 ||
+      todo.text.length > 25
     ) {
       return;
     }
     const newTodos = [todo, ...todos];
-
+    setShowTodos(newTodos);
     setTodos(newTodos);
+  };
+
+  const searchTodo = (input) => {
+    if (input.length > 0) {
+      let searchedTodos = [...todos].filter((todo) =>
+        todo.text.toLowerCase().includes(input.toLowerCase())
+      );
+      setShowTodos(searchedTodos);
+    }
   };
 
   const completeTodo = (id) => {
@@ -48,12 +58,14 @@ function TodoList() {
   return (
     <div className="to-do-app">
       <h1>My To-Do List</h1>
-      <TodoForm onSubmit={addTodo} />
+      <TodoForm onSubmit={addTodo} searchTodo={searchTodo} />
       <Todo
         todos={todos}
         completeTodo={completeTodo}
         removeTodo={removeTodo}
         updateTodo={updateTodo}
+        searchTodo={searchTodo}
+        showTodos={showtodos}
       />
     </div>
   );
