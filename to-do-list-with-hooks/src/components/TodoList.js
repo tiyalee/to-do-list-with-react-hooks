@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
+import { useHistory, Link } from "react-router-dom";
+
 function TodoList() {
+    let history = useHistory();
   const [todos, setTodos] = useState([]);
   const [showtodos, setShowTodos] = useState(todos);
   const addTodo = (todo) => {
@@ -59,12 +62,12 @@ function TodoList() {
   };
 
   const setLogout= () =>{
-      
+    history.push("/login");
   }
 
   return (
     <div className="to-do-app">
-      <button className="logout-btn">Logout</button>
+      <button className="logout-btn" onSubmit={setLogout}>Logout</button>
       <h1>My To-Do List</h1>
       <TodoForm onSubmit={addTodo} searchTodo={searchTodo} />
       <Todo
