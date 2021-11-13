@@ -34,10 +34,12 @@ function TodoList() {
       }
     });
     setTodos(updatedTodos);
+    setShowTodos(updatedTodos);
   };
   const removeTodo = (id) => {
     const removeArr = [...todos].filter((todo) => todo.id !== id);
     setTodos(removeArr);
+    setShowTodos(removeArr);
   };
 
   const updateTodo = (todoId, newVal) => {
@@ -53,10 +55,16 @@ function TodoList() {
     setTodos((prev) =>
       prev.map((item) => (item.id === todoId ? newVal : item))
     );
+    setShowTodos(todos);
   };
+
+  const setLogout= () =>{
+      
+  }
 
   return (
     <div className="to-do-app">
+      <button className="logout-btn">Logout</button>
       <h1>My To-Do List</h1>
       <TodoForm onSubmit={addTodo} searchTodo={searchTodo} />
       <Todo

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import TodoForm from "./TodoForm";
 import { RiCloseCircleLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
@@ -23,6 +23,7 @@ function Todo({
       value: "",
     });
   };
+
   if (edit.id) {
     return (
       <TodoForm edit={edit} onSubmit={submitUpdate} searchTodo={searchTodo} />

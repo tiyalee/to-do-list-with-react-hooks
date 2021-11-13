@@ -25,6 +25,10 @@ body {
   border-radius: 10px;
   padding-bottom: 32px;
 }
+.header{
+  text-align: center;
+  margin:auto;
+}
 
 h1 {
   margin: 32px 0;
@@ -144,4 +148,9 @@ h1 {
 
 .edit-icon {
   color: #fff;
+}
+
+.logout-btn{
+  width:10%;
+  margin:10% 10% 10% auto
 }
